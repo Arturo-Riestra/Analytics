@@ -1,0 +1,315 @@
+<div ng-controller="HomeCtrl" class="md-padding" ng-cloak>
+  <div>
+    <div layout="row" layout-align="center center">
+      <div layout="column">
+        <md-input-container>
+          <label>Segment</label>
+          <md-select ng-model="selectedSegment" md-selected-text="getSelectedSegment()">
+            <md-optgroup label="segments">
+              <md-option ng-value="segment" ng-repeat="segment in segments">{{segment}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <div layout="column" layout-align="center center">
+        <i class="material-icons">date_range</i>
+      </div>
+
+      <div layout="column">
+        <md-input-container>
+          <label>Date Ranges</label>
+          <md-select ng-model="selectedDateRange" md-selected-text="getSelectedDateRanges()">
+            <md-optgroup label="dateRanges">
+              <md-option ng-value="dateRange" ng-repeat="dateRange in dateRanges">{{dateRange}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <div layout="column" layout-align="center center">
+        <label>September 2016</label>
+      </div>
+
+      <div layout="column" flex layout-align="center end">
+        <div layout="row" layout-align="center center">
+          <div layout="column">
+            <md-button class="controlOption">
+              <i class="material-icons">file_download</i> Export
+            </md-button>
+          </div>
+
+          <div layout="column">
+            <md-button class="controlOption">
+              <i class="material-icons">share</i> Share
+            </md-button>
+          </div>
+
+          <div layout="column">
+            <md-switch class="md-primary" md-no-ink aria-label="Switch No Ink" >
+              Edit Mode
+            </md-switch>
+          </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+      <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect layout-fill flex>
+        <md-tab label="Traffic">
+          <div>
+            <div layout="row">
+              <div layout="column">
+                <md-button class="controlEdit">
+                  <i class="material-icons">delete</i>REMOVE DIMENSION
+                </md-button>
+              </div>
+              <div layout="column">
+                <md-button class="controlEdit">
+                  <i class="material-icons">library_add</i>ADD DIMENSION
+                </md-button>
+              </div>
+              <div layout="column" flex layout-align="center end">
+                <md-button class="groupOption">
+                  <i class="material-icons">library_add</i>ADD GROUP
+                </md-button>
+              </div>
+            </div>
+
+            <div layout="row" class="dimensionsOption" layout-align="center center">
+
+              <div layout="column" flex>
+                <md-checkbox ng-checked="master" ng-click="master=!master">
+                        PAGE VIEWS
+                </md-checkbox>
+              </div>
+              <div layout="column" flex>
+                <md-checkbox ng-checked="master" ng-click="master=!master">
+                        VISITS
+                </md-checkbox>
+              </div>
+              <div layout="column" flex>
+                <md-checkbox ng-checked="master" ng-click="master=!master">
+                        UNIQUE VISITORS
+                </md-checkbox>
+              </div>
+              <div layout="column" flex>
+                <md-checkbox>
+                        DOWNLOADS
+                </md-checkbox>
+              </div>
+              <div layout="column">
+                <md-button class="dimensionFilter">
+                  <i class="material-icons">filter_list</i> FILTER
+                </md-button>
+              </div>
+              <div layout="column">
+                <md-button class="dimensionFilter">
+                  <i class="material-icons">image_aspect_ratio</i> SIZE
+                </md-button>
+              </div>
+              <div layout="column">
+                <md-button class="dimensionFilter">
+                  <i class="material-icons">delete</i>
+                </md-button>
+              </div>
+
+            </div>
+            <div layput="row">
+              <md-input-container>
+                <label>Segment</label>
+                <md-select ng-model="selectedSegment" md-selected-text="getSelectedSegment()">
+                  <md-optgroup label="segments">
+                    <md-option ng-value="segment" ng-repeat="segment in segments">{{segment}}</md-option>
+                  </md-optgroup>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div layout="row">
+              <div flex layout="column">
+                <div>
+                  <p class="diemnsionTittle">PAGE VIEWS</p>
+                </div>
+                <div class="indicatorDiv">
+                  <p class="indicatorTittle">YTD</p>
+                  <p class="indicatorContent">29,135,999</p>
+                </div>
+                <div class="indicatorDiv">
+                  <p class="indicatorTittle">YoY</p>
+                  <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                </div>
+                <div class="indicatorDiv">
+                  <p class="indicatorTittle">MoM</p>
+                  <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                </div>
+              </div>
+
+              <div flex layout="column">
+                <div>
+                  <div>
+                    <p class="diemnsionTittle">VISITS</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">YTD</p>
+                    <p class="indicatorContent">29,135,999</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">YoY</p>
+                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">MoM</p>
+                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                  </div>
+                </div>
+              </div>
+
+              <div flex layout="column">
+                <div>
+                  <div>
+                    <p class="diemnsionTittle">DOWNLOADS</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">YTD</p>
+                    <p class="indicatorContent">29,135,999</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">YoY</p>
+                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">MoM</p>
+                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </md-tab>
+
+        <md-tab label="Geosegmentation">
+          <div>
+            <div layout="row">
+              <div layout="column">
+                <md-button class="controlEdit">
+                  <i class="material-icons">delete</i>REMOVE DIMENSION
+                </md-button>
+              </div>
+              <div layout="column">
+                <md-button class="controlEdit">
+                  <i class="material-icons">library_add</i>ADD DIMENSION
+                </md-button>
+              </div>
+              <div layout="column" flex layout-align="center end">
+                <md-button class="groupOption">
+                  <i class="material-icons">library_add</i>ADD GROUP
+                </md-button>
+              </div>
+            </div>
+
+            <div layout="row" class="dimensionsOption" layout-align="center center">
+
+              <div layout="column" flex>
+                <md-checkbox ng-checked="master" ng-click="master=!master">
+                        PAGE VIEWS
+                </md-checkbox>
+              </div>
+              <div layout="column" flex>
+                <md-checkbox ng-checked="master" ng-click="master=!master">
+                        VISITS
+                </md-checkbox>
+              </div>
+              <div layout="column" flex>
+                <md-checkbox ng-checked="master" ng-click="master=!master">
+                        UNIQUE VISITORS
+                </md-checkbox>
+              </div>
+              <div layout="column" flex>
+                <md-checkbox>
+                        DOWNLOADS
+                </md-checkbox>
+              </div>
+              <div layout="column">
+                <md-button class="dimensionFilter">
+                  <i class="material-icons">filter_list</i> FILTER
+                </md-button>
+              </div>
+              <div layout="column">
+                <md-button class="dimensionFilter">
+                  <i class="material-icons">image_aspect_ratio</i> SIZE
+                </md-button>
+              </div>
+              <div layout="column">
+                <md-button class="dimensionFilter">
+                  <i class="material-icons">delete</i>
+                </md-button>
+              </div>
+
+            </div>
+            <div layout="row">
+              <div flex layout="column">
+                <div>
+                  <p class="diemnsionTittle">PAGE VIEWS</p>
+                </div>
+                <div class="indicatorDiv">
+                  <p class="indicatorTittle">YTD</p>
+                  <p class="indicatorContent">29,135,999</p>
+                </div>
+                <div class="indicatorDiv">
+                  <p class="indicatorTittle">YoY</p>
+                  <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                </div>
+                <div class="indicatorDiv">
+                  <p class="indicatorTittle">MoM</p>
+                  <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                </div>
+              </div>
+
+              <div flex layout="column">
+                <div flex layout="column">
+                  <div>
+                    <p class="diemnsionTittle">VISITS</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">YTD</p>
+                    <p class="indicatorContent">29,135,999</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">YoY</p>
+                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">MoM</p>
+                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                  </div>
+                </div>
+              </div>
+
+              <div flex layout="column">
+                  <div>
+                    <p class="diemnsionTittle">DOWNLOADS</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">YTD</p>
+                    <p class="indicatorContent">29,135,999</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">YoY</p>
+                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                  </div>
+                  <div class="indicatorDiv">
+                    <p class="indicatorTittle">MoM</p>
+                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+        </md-tab>
+      </md-tabs>
+
+  </div>
+</div>
