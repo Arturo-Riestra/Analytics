@@ -9,6 +9,18 @@
   vertical-align: middle;
 }
 
+.controlVisualization {
+  background-color: rgb(255,87,34);
+  color: white;
+  vertical-align: middle;
+}
+
+.controlVisualization:not([disabled]):hover {
+  background-color: rgba(107, 103, 91, 0.96);
+  color: white;
+}
+
+
 .groupOption {
   background-color: #ccc;
 }
@@ -25,6 +37,7 @@
   .indicatorContent {
     font-size: x-large;
     text-align: center;
+    vertical-align: middle;
   }
 
   .diemnsionTittle {
@@ -37,7 +50,7 @@
   }
 
   md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-    min-height: 600px;
+    min-height: 1200px;
   }
 
   md-checkbox {
@@ -61,4 +74,17 @@
 
   .md-padding {
     padding: 25px 100px 75px 100px;
+  }
+
+  .md-whiteframe-11dp {
+    height: 90%;
+    max-height: 200px;
+  }
+
+  .calculationFilter {
+    height: 30%;
+  }
+
+  .divImage {
+    height: 100%;
   }

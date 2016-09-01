@@ -1,5 +1,6 @@
 <div ng-controller="HomeCtrl" class="md-padding" ng-cloak>
   <div>
+    <h3>Homepage</h3>
     <div layout="row" layout-align="center center">
       <div layout="column">
         <md-input-container>
@@ -60,253 +61,421 @@
       <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect layout-fill flex>
         <md-tab label="Traffic">
           <div>
-            <div layout="row">
-              <div layout="column">
-                <md-button class="controlEdit">
-                  <i class="material-icons">delete</i>REMOVE DIMENSION
-                </md-button>
-              </div>
-              <div layout="column">
-                <md-button class="controlEdit">
-                  <i class="material-icons">library_add</i>ADD DIMENSION
-                </md-button>
-              </div>
-              <div layout="column" flex layout-align="center end">
-                <md-button class="groupOption">
-                  <i class="material-icons">library_add</i>ADD GROUP
-                </md-button>
-              </div>
-            </div>
-
-            <div layout="row" class="dimensionsOption" layout-align="center center">
-
-              <div layout="column" flex>
-                <md-checkbox ng-checked="master" ng-click="master=!master">
-                        PAGE VIEWS
-                </md-checkbox>
-              </div>
-              <div layout="column" flex>
-                <md-checkbox ng-checked="master" ng-click="master=!master">
-                        VISITS
-                </md-checkbox>
-              </div>
-              <div layout="column" flex>
-                <md-checkbox ng-checked="master" ng-click="master=!master">
-                        UNIQUE VISITORS
-                </md-checkbox>
-              </div>
-              <div layout="column" flex>
-                <md-checkbox>
-                        DOWNLOADS
-                </md-checkbox>
-              </div>
-              <div layout="column">
-                <md-button class="dimensionFilter">
-                  <i class="material-icons">filter_list</i> FILTER
-                </md-button>
-              </div>
-              <div layout="column">
-                <md-button class="dimensionFilter">
-                  <i class="material-icons">image_aspect_ratio</i> SIZE
-                </md-button>
-              </div>
-              <div layout="column">
-                <md-button class="dimensionFilter">
-                  <i class="material-icons">delete</i>
-                </md-button>
-              </div>
-
-            </div>
-            <div layput="row">
-              <md-input-container>
-                <label>Segment</label>
-                <md-select ng-model="selectedSegment" md-selected-text="getSelectedSegment()">
-                  <md-optgroup label="segments">
-                    <md-option ng-value="segment" ng-repeat="segment in segments">{{segment}}</md-option>
-                  </md-optgroup>
-                </md-select>
-              </md-input-container>
-            </div>
-            <div layout="row">
-              <div flex layout="column">
-                <div>
-                  <p class="diemnsionTittle">PAGE VIEWS</p>
+            <md-whiteframe class="md-whiteframe-10dp" flex>
+              <div layout="row">
+                <div layout="column">
+                  <md-button class="controlEdit">
+                    <i class="material-icons">delete</i>REMOVE DIMENSION
+                  </md-button>
                 </div>
-                <div class="indicatorDiv">
-                  <p class="indicatorTittle">YTD</p>
-                  <p class="indicatorContent">29,135,999</p>
+                <div layout="column">
+                  <md-button class="controlEdit">
+                    <i class="material-icons">library_add</i>ADD DIMENSION
+                  </md-button>
                 </div>
-                <div class="indicatorDiv">
-                  <p class="indicatorTittle">YoY</p>
-                  <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                </div>
-                <div class="indicatorDiv">
-                  <p class="indicatorTittle">MoM</p>
-                  <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                <div layout="column" flex layout-align="center end">
+                  <md-button class="groupOption">
+                    <i class="material-icons">library_add</i>ADD GROUP
+                  </md-button>
                 </div>
               </div>
+            </md-whiteframe>
 
-              <div flex layout="column">
-                <div>
-                  <div>
-                    <p class="diemnsionTittle">VISITS</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">YTD</p>
-                    <p class="indicatorContent">29,135,999</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">YoY</p>
-                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">MoM</p>
-                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                  </div>
+            <md-whiteframe class="md-whiteframe-10dp" flex>
+              <div layout="row" class="dimensionsOption" layout-align="center center">
+                <div layout="column" flex>
+                  <md-checkbox ng-checked="master" ng-click="master=!master">
+                          PAGE VIEWS
+                  </md-checkbox>
+                </div>
+                <div layout="column" flex>
+                  <md-checkbox ng-checked="master" ng-click="master=!master">
+                          VISITS
+                  </md-checkbox>
+                </div>
+                <div layout="column" flex>
+                  <md-checkbox>
+                          UNIQUE VISITORS
+                  </md-checkbox>
+                </div>
+                <div layout="column" flex>
+                  <md-checkbox>
+                          DOWNLOADS
+                  </md-checkbox>
+                </div>
+                <div layout="column">
+                  <md-button class="dimensionFilter">
+                    <i class="material-icons">filter_list</i> FILTER
+                  </md-button>
+                </div>
+                <div layout="column">
+                  <md-button class="dimensionFilter">
+                    <i class="material-icons">image_aspect_ratio</i> SIZE(2x2)
+                  </md-button>
+                </div>
+                <div layout="column">
+                  <md-button class="dimensionFilter">
+                    <i class="material-icons">delete</i>
+                  </md-button>
                 </div>
               </div>
+            </md-whiteframe>
+            <md-whiteframe class="md-whiteframe-11dp">
+              <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
+                    md-row-height-gt-md="2:1" md-row-height="2:1"
+                    md-gutter="12px" md-gutter-gt-sm="8px" >
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>YoY</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Line Chart</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>MoM</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Line Chart</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>YTD</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Column Chart</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>YTD</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Column Chart</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+              </md-grid-list>
+              <md-button class="controlVisualization">
+                <i class="material-icons">library_add</i>ADD VISUALIZATION
+              </md-button>
+            </md-whiteframe>
 
-              <div flex layout="column">
-                <div>
-                  <div>
-                    <p class="diemnsionTittle">DOWNLOADS</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">YTD</p>
-                    <p class="indicatorContent">29,135,999</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">YoY</p>
-                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">MoM</p>
-                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
           </div>
         </md-tab>
 
         <md-tab label="Geosegmentation">
           <div>
-            <div layout="row">
-              <div layout="column">
-                <md-button class="controlEdit">
-                  <i class="material-icons">delete</i>REMOVE DIMENSION
-                </md-button>
-              </div>
-              <div layout="column">
-                <md-button class="controlEdit">
-                  <i class="material-icons">library_add</i>ADD DIMENSION
-                </md-button>
-              </div>
-              <div layout="column" flex layout-align="center end">
-                <md-button class="groupOption">
-                  <i class="material-icons">library_add</i>ADD GROUP
-                </md-button>
-              </div>
-            </div>
-
-            <div layout="row" class="dimensionsOption" layout-align="center center">
-
-              <div layout="column" flex>
-                <md-checkbox ng-checked="master" ng-click="master=!master">
-                        PAGE VIEWS
-                </md-checkbox>
-              </div>
-              <div layout="column" flex>
-                <md-checkbox ng-checked="master" ng-click="master=!master">
-                        VISITS
-                </md-checkbox>
-              </div>
-              <div layout="column" flex>
-                <md-checkbox ng-checked="master" ng-click="master=!master">
-                        UNIQUE VISITORS
-                </md-checkbox>
-              </div>
-              <div layout="column" flex>
-                <md-checkbox>
-                        DOWNLOADS
-                </md-checkbox>
-              </div>
-              <div layout="column">
-                <md-button class="dimensionFilter">
-                  <i class="material-icons">filter_list</i> FILTER
-                </md-button>
-              </div>
-              <div layout="column">
-                <md-button class="dimensionFilter">
-                  <i class="material-icons">image_aspect_ratio</i> SIZE
-                </md-button>
-              </div>
-              <div layout="column">
-                <md-button class="dimensionFilter">
-                  <i class="material-icons">delete</i>
-                </md-button>
-              </div>
-
-            </div>
-            <div layout="row">
-              <div flex layout="column">
-                <div>
-                  <p class="diemnsionTittle">PAGE VIEWS</p>
+            <md-whiteframe class="md-whiteframe-10dp" flex>
+              <div layout="row">
+                <div layout="column">
+                  <md-button class="controlEdit">
+                    <i class="material-icons">delete</i>REMOVE DIMENSION
+                  </md-button>
                 </div>
-                <div class="indicatorDiv">
-                  <p class="indicatorTittle">YTD</p>
-                  <p class="indicatorContent">29,135,999</p>
+                <div layout="column">
+                  <md-button class="controlEdit">
+                    <i class="material-icons">library_add</i>ADD DIMENSION
+                  </md-button>
                 </div>
-                <div class="indicatorDiv">
-                  <p class="indicatorTittle">YoY</p>
-                  <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                </div>
-                <div class="indicatorDiv">
-                  <p class="indicatorTittle">MoM</p>
-                  <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                <div layout="column" flex layout-align="center end">
+                  <md-button class="groupOption">
+                    <i class="material-icons">library_add</i>ADD GROUP
+                  </md-button>
                 </div>
               </div>
+            </md-whiteframe>
 
-              <div flex layout="column">
-                <div flex layout="column">
-                  <div>
-                    <p class="diemnsionTittle">VISITS</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">YTD</p>
-                    <p class="indicatorContent">29,135,999</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">YoY</p>
-                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">MoM</p>
-                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                  </div>
+            <md-whiteframe class="md-whiteframe-10dp" flex>
+              <div layout="row" class="dimensionsOption" layout-align="center center">
+                <div layout="column" flex>
+                  <md-checkbox ng-checked="master" ng-click="master=!master">
+                          PAGE VIEWS
+                  </md-checkbox>
+                </div>
+                <div layout="column" flex>
+                  <md-checkbox ng-checked="master" ng-click="master=!master">
+                          VISITS
+                  </md-checkbox>
+                </div>
+                <div layout="column" flex>
+                  <md-checkbox ng-checked="master" ng-click="master=!master">
+                          UNIQUE VISITORS
+                  </md-checkbox>
+                </div>
+                <div layout="column" flex>
+                  <md-checkbox>
+                          DOWNLOADS
+                  </md-checkbox>
+                </div>
+                <div layout="column">
+                  <md-button class="dimensionFilter">
+                    <i class="material-icons">filter_list</i> FILTER
+                  </md-button>
+                </div>
+                <div layout="column">
+                  <md-button class="dimensionFilter">
+                    <i class="material-icons">image_aspect_ratio</i> SIZE(3x3)
+                  </md-button>
+                </div>
+                <div layout="column">
+                  <md-button class="dimensionFilter">
+                    <i class="material-icons">delete</i>
+                  </md-button>
                 </div>
               </div>
+            </md-whiteframe>
+            <md-whiteframe class="md-whiteframe-11dp">
+              <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3"
+                    md-row-height-gt-md="3:2" md-row-height="3:2"
+                    md-gutter="12px" md-gutter-gt-sm="8px" >
+                <md-grid-tile>
+                  <md-whiteframe class="md-whiteframe-11dp" flex>
+                    <div class="calculationFilter" layout="row">
+                      <div class="" layout="column" flex>
+                        <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                          <md-option value="YTD" selected>YTD</md-option>
+                        </md-select>
+                      </div>
+                      <div class="" layout="column" flex>
+                        <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                          <md-option value="indicator" selected>Indicator</md-option>
+                        </md-select>
+                      </div>
+                    </div>
 
-              <div flex layout="column">
-                  <div>
-                    <p class="diemnsionTittle">DOWNLOADS</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">YTD</p>
-                    <p class="indicatorContent">29,135,999</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">YoY</p>
-                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                  </div>
-                  <div class="indicatorDiv">
-                    <p class="indicatorTittle">MoM</p>
-                    <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
-                  </div>
-              </div>
+                    <div>
+                      <hr>
+                      <p class="indicatorTittle">YTD</p>
+                      <p class="indicatorContent">29,135,999</p>
+                    </div>
+                  </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>YTD</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Indicator</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div>
+                        <hr>
+                        <p class="indicatorTittle">YTD</p>
+                        <p class="indicatorContent">29,135,999</p>
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>YTD</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Indicator</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div>
+                        <hr>
+                        <p class="indicatorTittle">YTD</p>
+                        <p class="indicatorContent">29,135,999</p>
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>YoY</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Indicator</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div>
+                        <hr>
+                        <p class="indicatorTittle">YoY</p>
+                        <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>YoY</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Indicator</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div>
+                        <hr>
+                        <p class="indicatorTittle">YoY</p>
+                        <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>YoY</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Indicator</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div>
+                        <hr>
+                        <p class="indicatorTittle">YoY</p>
+                        <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>MoM</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Indicator</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div>
+                        <hr>
+                        <p class="indicatorTittle">MoM</p>
+                        <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>MoM</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Indicator</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div>
+                        <hr>
+                        <p class="indicatorTittle">MoM</p>
+                        <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      <div class="calculationFilter" layout="row">
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="calculations" placeholder="Calculation" class="md-no-underline">
+                            <md-option value="YTD" selected>MoM</md-option>
+                          </md-select>
+                        </div>
+                        <div class="" layout="column" flex>
+                          <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
+                            <md-option value="indicator" selected>Indicator</md-option>
+                          </md-select>
+                        </div>
+                      </div>
+                      <div>
+                        <hr>
+                        <p class="indicatorTittle">MoM</p>
+                        <p class="indicatorContent"><i class="material-icons">arrow_upward</i>29%</p>
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+              </md-grid-list>
+              <md-button class="controlVisualization">
+                <i class="material-icons">library_add</i>ADD VISUALIZATION
+              </md-button>
+            </md-whiteframe>
 
-            </div>
           </div>
         </md-tab>
       </md-tabs>
