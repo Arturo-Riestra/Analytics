@@ -1,0 +1,300 @@
+<div ng-controller="ReportsCtrl" class="md-padding" ng-cloak>
+  <div>
+    <h3>Standar Report</h3>
+    <div layout="row" layout-align="center center">
+      <div layout="column">
+        <md-input-container>
+          <label>Segment</label>
+          <md-select ng-model="selectedSegment" md-selected-text="getSelectedSegment()">
+            <md-optgroup label="segments">
+              <md-option ng-value="segment" ng-repeat="segment in segments">{{segment}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <div layout="column" layout-align="center center">
+        <i class="material-icons">date_range</i>
+      </div>
+
+      <div layout="column">
+        <md-input-container>
+          <label>Date Ranges</label>
+          <md-select ng-model="selectedDateRange" md-selected-text="getSelectedDateRanges()">
+            <md-optgroup label="dateRanges">
+              <md-option ng-value="dateRange" ng-repeat="dateRange in dateRanges">{{dateRange}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <div layout="column" layout-align="center center">
+        <label>September 2016</label>
+      </div>
+
+      <div layout="column" flex layout-align="center end">
+        <div layout="row" layout-align="center center">
+          <div layout="column">
+            <md-button class="controlOption">
+              <i class="material-icons">file_download</i> Export
+            </md-button>
+          </div>
+
+          <div layout="column">
+            <md-button class="controlOption">
+              <i class="material-icons">share</i> Share
+            </md-button>
+          </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+      <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect layout-fill flex>
+        <md-tab label="Traffic">
+          <div>
+            <md-whiteframe class="md-whiteframe-11dp">
+              <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
+                    md-row-height-gt-md="2:1" md-row-height="2:1"
+                    md-gutter="12px" md-gutter-gt-sm="8px" >
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+              </md-grid-list>
+            </md-whiteframe>
+
+          </div>
+        </md-tab>
+
+        <md-tab label="Geosegmentation">
+          <div>
+            <md-whiteframe class="md-whiteframe-11dp">
+              <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
+                    md-row-height-gt-md="2:1" md-row-height="2:1"
+                    md-gutter="12px" md-gutter-gt-sm="8px" >
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+              </md-grid-list>
+            </md-whiteframe>
+          </div>
+        </md-tab>
+
+        <md-tab label="Downloads">
+          <div>
+            <md-whiteframe class="md-whiteframe-11dp">
+              <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
+                    md-row-height-gt-md="2:1" md-row-height="2:1"
+                    md-gutter="12px" md-gutter-gt-sm="8px" >
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+              </md-grid-list>
+            </md-whiteframe>
+          </div>
+        </md-tab>
+
+        <md-tab label="Keywords">
+          <div>
+            <md-whiteframe class="md-whiteframe-11dp">
+              <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
+                    md-row-height-gt-md="2:1" md-row-height="2:1"
+                    md-gutter="12px" md-gutter-gt-sm="8px" >
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+              </md-grid-list>
+            </md-whiteframe>
+          </div>
+        </md-tab>
+
+        <md-tab label="Language">
+          <div>
+            <md-whiteframe class="md-whiteframe-11dp">
+              <md-grid-list
+                    md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
+                    md-row-height-gt-md="2:1" md-row-height="2:1"
+                    md-gutter="12px" md-gutter-gt-sm="8px" >
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS, VISITS, UNIQUE VISITORS
+                      <div class="divImage">
+                        <hr>
+                        <img src="graph_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+                <md-grid-tile>
+                    <md-whiteframe class="md-whiteframe-11dp" flex>
+                      PAGE VIEWS
+                      <div class="divImage">
+                        <hr>
+                        <img src="column_example.png" class="md-card-image" style="max-height: 60%; width: 100%;">
+                      </div>
+                    </md-whiteframe>
+                </md-grid-tile>
+              </md-grid-list>
+            </md-whiteframe>
+          </div>
+        </md-tab>
+
+      </md-tabs>
+
+  </div>
+</div>
