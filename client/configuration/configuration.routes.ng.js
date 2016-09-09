@@ -6,6 +6,11 @@ angular.module('analyticsApp')
   .state('configuration', {
     url: '/configuration',
     templateUrl: 'client/configuration/configuration.view.ng.html',
-    controller: 'ConfigurationCtrl'
+    controller: 'ConfigurationCtrl',
+    resolve: {
+      currentUser: ['$meteor', function($meteor) {
+        return $meteor.requireUser();
+      }]
+    }
   });
 });

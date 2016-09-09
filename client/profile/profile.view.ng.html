@@ -1,6 +1,13 @@
 <div ng-controller="ProfileCtrl" class="md-padding" ng-cloak>
-  <div>
-    <h2>My Profile</h2>
+  <div class="" layout="row">
+    <div layout="column" flex="80">
+      <h2>My Profile</h2>
+    </div>
+    <div class="" layout="row" layout-align="end end">
+      <md-button class="controlOption" ng-click="logginOut()">
+        <i class="material-icons">exit_to_app</i> LOGOUT
+      </md-button>
+    </div>
   </div>
 
   <div class="">

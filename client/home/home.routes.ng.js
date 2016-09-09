@@ -6,11 +6,16 @@ angular.module('analyticsApp')
   .state('home', {
     url: '/home',
     templateUrl: 'client/home/home.view.ng.html',
-    controller: 'HomeCtrl'
+    controller: 'HomeCtrl',
+    resolve: {
+      currentUser: ['$meteor', function($meteor) {
+        return $meteor.requireUser();
+      }]
+    }
   })
   .state('login', {
     url: '/',
     templateUrl: 'client/home/home.login.view.ng.html',
-    controller: 'HomeCtrl'
+    controller: 'HomeLoginCtrl'
   });
 });

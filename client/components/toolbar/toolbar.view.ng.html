@@ -2,26 +2,26 @@
   <div class="md-toolbar-tools">
     <div class="navbar-left" layout="row" layout-align="center center">
       <p><h2>NXP</h2>&nbsp; WEB ANALYTICS</p>
-
     </div>
     <span flex=''></span>
     <navbar-right>
-
-      <md-button class="md-icon-button md-primary" aria-label="Home" ng-href="/home">
-        <i class="material-icons">home</i>
-      </md-button>
-      <md-button class="md-icon-button md-primary" aria-label="Standard Report" ng-href="/reports">
-        <i class="material-icons">assessment</i>
-      </md-button>
-      <md-button class="md-icon-button md-primary" aria-label="Dashboard" ng-href="/dashboard">
-        <i class="material-icons">dashboard</i>
-      </md-button>
-      <md-button class="md-icon-button md-primary" aria-label="User" ng-href="/profile">
-        <i class="material-icons">person</i>
-      </md-button>
-      <md-button class="md-icon-button md-primary" aria-label="User" ng-href="/configuration">
-        <i class="material-icons">settings</i>
-      </md-button>
-    </navbar-right>
+      <div class="" ng-controller="HomeLoginCtrl">
+        <md-button class="md-icon-button md-primary" aria-label="Home" ng-href="/home" ng-show="isLoggedIn()">
+          <i class="material-icons">home</i>
+        </md-button>
+        <md-button class="md-icon-button md-primary" aria-label="Standard Report" ng-href="/reports" ng-show="isLoggedIn()">
+          <i class="material-icons">assessment</i>
+        </md-button>
+        <md-button class="md-icon-button md-primary" aria-label="Dashboard" ng-href="/dashboard" ng-show="isLoggedIn()">
+          <i class="material-icons">dashboard</i>
+        </md-button>
+        <md-button class="md-icon-button md-primary" aria-label="User" ng-href="/profile" ng-show="isLoggedIn()">
+          <i class="material-icons">person</i>
+        </md-button>
+        <md-button class="md-icon-button md-primary" aria-label="User" ng-href="/configuration" ng-show="isLoggedIn()">
+          <i class="material-icons">settings</i>
+        </md-button>
+      </div>
+      </navbar-right>
   </div>
 </md-toolbar>

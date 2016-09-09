@@ -1,4 +1,4 @@
-<div ng-controller="HomeCtrl" class="md-padding" ng-cloak>
+<div class="md-padding" ng-cloak>
   <div>
     <h3>Homepage</h3>
   </div>
@@ -10,28 +10,32 @@
             md-gutter="12px" md-gutter-gt-sm="8px" >
         <md-grid-tile>
           <md-whiteframe class="md-whiteframe-12dp divLogIn" flex>
-            <h3>Log in to your account</h3>
-            <div class="" layout="row">
-              <md-input-container>
-                <label>CoreID</label>
-                <input>
-              </md-input-container>
-            </div>
-            <div class="" layout="row">
-              <md-input-container>
-                <label>Password</label>
-                <input type="password">
-              </md-input-container>
-            </div>
-            <div class="" layout="row">
-              <md-checkbox ng-checked="master" ng-click="master=!master">
-                Remember me
-              </md-checkbox>
-            </div>
-            <div class="" layout="row" layout-align="end end">
-              <md-button class="controlOption">
-                <i class="material-icons">account_box</i> LOGIN
-              </md-button>
+            <div class="" ng-controller="HomeLoginCtrl">
+              <form ng-submit="login()">
+                <h3>Log in to your account</h3>
+                <div class="" layout="row">
+                  <md-input-container>
+                    <label>CoreID</label>
+                    <input ng-model="username">
+                  </md-input-container>
+                </div>
+                <div class="" layout="row">
+                  <md-input-container>
+                    <label>Password</label>
+                    <input ng-model="password" type="password">
+                  </md-input-container>
+                </div>
+                <div class="" layout="row">
+                  <md-checkbox ng-model="rememberMe">
+                    Remember me
+                  </md-checkbox>
+                </div>
+                <div class="" layout="row" layout-align="end end">
+                  <md-button class="controlOption" type="submit">
+                    <i class="material-icons">account_box</i> LOGIN
+                  </md-button>
+                </div>
+              </form>
             </div>
           </md-whiteframe>
         </md-grid-tile>
@@ -46,12 +50,12 @@
             </div>
             <div class="" layout="row">
               <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
-                <md-option value="indicator" selected>Line Chart</md-option>
+                <md-option value="indicator" selected>Analytics needs</md-option>
               </md-select>
             </div>
             <div class="" layout="row">
               <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
-                <md-option value="indicator" selected>Line Chart</md-option>
+                <md-option value="indicator" selected>Experience</md-option>
               </md-select>
             </div>
             <div class="" layout="row" layout-align="end center">
