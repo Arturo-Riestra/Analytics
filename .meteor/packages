@@ -25,3 +25,6 @@ dotansimha:accounts-ui-angular
 meteorhacks:aggregate
 planettraining:material-design-icons
 accounts-ui
+accounts-base
+alanning:roles
+email

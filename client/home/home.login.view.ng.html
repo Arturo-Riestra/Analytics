@@ -3,13 +3,9 @@
     <h3>Homepage</h3>
   </div>
 
-  <div class="logDiv">
-    <md-grid-list
-            md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="2"
-            md-row-height-gt-md="2:1" md-row-height="2:1"
-            md-gutter="12px" md-gutter-gt-sm="8px" >
-        <md-grid-tile>
-          <md-whiteframe class="md-whiteframe-12dp divLogIn" flex>
+  <div layout="column" class="loginDiv">
+    <md-whiteframe class="md-whiteframe-1dp divLogIn" flex>
+        <div class="" flex>
             <div class="" ng-controller="HomeLoginCtrl">
               <form ng-submit="login()">
                 <h3>Log in to your account</h3>
@@ -30,41 +26,75 @@
                     Remember me
                   </md-checkbox>
                 </div>
-                <div class="" layout="row" layout-align="end end">
+                <div class="" layout="row" layout-align="end end" flex>
                   <md-button class="controlOption" type="submit">
                     <i class="material-icons">account_box</i> LOGIN
-                  </md-button>
+                  </md-button>                  
                 </div>
               </form>
+              <div ng-show="reason" class="red">{{reason}}</div>
             </div>
-          </md-whiteframe>
-        </md-grid-tile>
-        <md-grid-tile>
-          <md-whiteframe class="md-whiteframe-12dp divLogIn" flex>
-            <h3>Request account</h3>
-            <div class="" layout="row">
-              <md-input-container>
-                <label>CoreID</label>
-                <input>
-              </md-input-container>
+          </div>
+        </md-whiteframe>
+        <md-whiteframe class="md-whiteframe-1dp divLogIn" flex>
+          <div class="" flex>
+            <div class="" ng-controller="HomeLoginCtrl">
+              <form ng-submit="request()">
+                <h3>Request account</h3>
+                <div class="" layout="row">
+                  <md-input-container>
+                    <label>CoreID</label>
+                    <input>
+                  </md-input-container>
+                </div>
+
+                <div class="" layout="row">
+                  <h4>Analytics Needs</h4>
+                </div>
+                <div class="" layout="row">
+                  <md-checkbox>Require general information about a page</md-checkbox>
+                </div>
+                <div class="" layout="row">
+                  <md-checkbox>Require data from an specific system</md-checkbox>
+                </div>
+                <div class="" layout="row">
+                  <md-checkbox>Require to report on-going data</md-checkbox>
+                </div>
+
+                <div class="" layout="row">
+                  <h4>Analytics Experience</h4>
+                </div>
+                <div class="" layout="row">
+                  <md-checkbox>None</md-checkbox>
+                </div>
+                <div class="" layout="row">
+                  <md-checkbox>Reports on Adobe Catalyst</md-checkbox>
+                </div>
+                <div class="" layout="row">
+                  <md-checkbox>Analysis of data from multiple sources</md-checkbox>
+                </div>
+                <div class="" layout="row">
+                  <md-checkbox>Display on custom formats</md-checkbox>
+                </div>
+                <div class="" layout="row">
+                  <label class="labelRequest">How would data analysis help on your role?</label>
+                </div>
+                <div class="" layout="row">
+                  <md-input-container>
+                    <textarea ng-model="test" ng-trim="false" md-maxlength="280" maxlength="280"></textarea>
+                  </md-input-container>
+                </div>
+
+                <div class="" layout="row" layout-align="end center">
+                  <md-button class="controlOption">
+                    <i class="material-icons">assignment_ind</i> REQUEST
+                  </md-button>
+                </div>
+
+
+              </form>
             </div>
-            <div class="" layout="row">
-              <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
-                <md-option value="indicator" selected>Analytics needs</md-option>
-              </md-select>
-            </div>
-            <div class="" layout="row">
-              <md-select ng-model="indicators" placeholder="Indicator" class="md-no-underline">
-                <md-option value="indicator" selected>Experience</md-option>
-              </md-select>
-            </div>
-            <div class="" layout="row" layout-align="end center">
-              <md-button class="controlOption">
-                <i class="material-icons">assignment_ind</i> REQUEST
-              </md-button>
-            </div>
-          </md-whiteframe>
-        </md-grid-tile>
-      </md-grid-list>
+          </div>
+        </md-whiteframe>
   </div>
 </div>

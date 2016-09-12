@@ -106,5 +106,14 @@
   }
 
   .logDiv {
-    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .labelRequest {
+    font-size: small;
   }
