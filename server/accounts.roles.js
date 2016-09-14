@@ -4,13 +4,18 @@ Meteor.methods({
   }
 });
 
+Meteor.methods({
+  'accounts.set.roles' (userid , role){
+    Roles.setUserRoles(userid , role);
+  }
+});
 
-Meteor.publish("allusers", function () {
-  return Meteor.users.find({},
-  {
-    // specific fields to return
-    'profile.email': 1,
-    'profile.name': 1,
-    'profile.createdAt': 1
-  });
+Meteor.publish("userData", function () {
+    return Meteor.users.find({}, {fields: {"roles": 1, "username": 1, "createdAt": 1}});
+
+});
+
+Meteor.publish("userTemp", function () {
+    return Meteor.users.find({roles: 'temp'}, {fields: {"roles": 1, "username": 1, "createdAt": 1}});
+
 });

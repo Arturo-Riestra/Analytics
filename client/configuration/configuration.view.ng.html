@@ -1,14 +1,8 @@
 <div ng-controller="ConfigurationCtrl" class="md-padding" ng-cloak>
+
   <div>
     <h2>Portal Settings</h2>
   </div>
-  <template name="listAll">
-  {{#each user}}
-      {{_id}}
-      {{username}}
-      
-  {{/each}}
-</template>
   <div class="">
     <md-whiteframe class="md-whiteframe-5dp" flex>
       <div class="" layout="row">
@@ -16,9 +10,6 @@
           <h3>Users</h3>
         </div>
         <div class="" layout="column"  flex="70" layout-align="start end">
-          <md-button class="controlOption">
-            <i class="material-icons">library_add</i>ADD NEW
-          </md-button>
         </div>
       </div>
 
@@ -36,43 +27,27 @@
         <h4>Role</h4>
       </div>
     </div>
-
+    <div  ng-repeat="user in userData">
       <div class="" layout="row" layout-align="center center">
         <div class="" layout="column"  flex="30">
-          Jose Romero
+          {{user._id}}
         </div>
         <div class="" layout="column"  flex="25">
-          b27206
+          {{user.username}}
         </div>
         <div class="" layout="column"  flex="25">
-          Jan 23, 2016
+          {{user.createdAt}}
         </div>
         <div class="" layout="column"  flex="20">
-          <md-select ng-model="limit" class="configSelect">
-            <md-option selected>Administrator</md-option>
-            <md-option>User</md-option>
+          <md-select ng-model="user.chosenValue" class="configSelect">
+            <md-option ng-value="admin" ng-selected="user.roles[0] == 'admin'" ng-click="alterCredentials(user._id, 'admin')">Administrator</md-option>
+            <md-option ng-value="user" ng-selected="user.roles[0] == 'user'" ng-click="alterCredentials(user._id, 'user')">User</md-option>
+            <md-option ng-hide="user.roles[0] !== 'temp'" ng-selected="user.roles[0] == 'temp'">New Request</md-option>
           </md-select>
         </div>
       </div>
       <hr>
-      <div class="" layout="row" layout-align="center center">
-        <div class="" layout="column"  flex="30">
-          Luis Gazcon
-        </div>
-        <div class="" layout="column"  flex="25">
-          x41691
-        </div>
-        <div class="" layout="column"  flex="25">
-          Jan 23, 2016
-        </div>
-        <div layout="column"  flex="20">
-          <md-select ng-model="limit" class="configSelect">
-            <md-option>Administrator</md-option>
-            <md-option selected>User</md-option>
-          </md-select>
-        </div>
-      </div>
-      <hr>
+    </div>
     </md-whiteframe>
   </div>
 
