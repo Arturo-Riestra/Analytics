@@ -1,12 +1,15 @@
 <div class="md-padding" ng-cloak>
-  <div>
+  <div ng-show="titleShow">
     <h3>Homepage</h3>
   </div>
 
-  <div layout="column" class="loginDiv">
-    <md-whiteframe class="md-whiteframe-1dp divLogIn" flex>
-        <div class="" flex>
-            <div class="" ng-controller="HomeLoginCtrl">
+  <div layout="column" class="loginDiv" ng-controller="HomeLoginCtrl">
+    <div layout="row" layout-sm="column" layout-align="center center" ng-show="logAuto">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      <label>Loggin in</label>
+    </div>
+    <md-whiteframe class="md-whiteframe-1dp divLogIn" flex ng-show="loginFrame">
+            <div class="">
               <form ng-submit="login()">
                 <h3>Log in to your account</h3>
                 <div class="" layout="row">
@@ -26,25 +29,26 @@
                     Remember me
                   </md-checkbox>
                 </div>
-                <div class="" layout="row" layout-align="end end" flex>
+                <div class="" layout="row" layout-xs="column" layout-align="end center" layout-align-xs="center center" flex>
+                  <a href="#" ng-click="loginFrame = !loginFrame; requestFrame = !requestFrame"><i class="material-icons">assignment_ind</i> Request account</a>
                   <md-button class="controlOption" type="submit">
                     <i class="material-icons">account_box</i> LOGIN
-                  </md-button>                  
+                  </md-button>
                 </div>
               </form>
               <div ng-show="reason" class="red">{{reason}}</div>
             </div>
-          </div>
+
         </md-whiteframe>
-        <md-whiteframe class="md-whiteframe-1dp divLogIn" flex>
+        <md-whiteframe class="md-whiteframe-1dp divLogIn" flex ng-show="requestFrame">
           <div class="" flex>
-            <div class="" ng-controller="HomeLoginCtrl">
+            <div class="">
               <form ng-submit="request()">
                 <h3>Request account</h3>
                 <div class="" layout="row">
                   <md-input-container>
                     <label>CoreID</label>
-                    <input>
+                    <input ng-model="accountRequest">
                   </md-input-container>
                 </div>
 
@@ -52,47 +56,46 @@
                   <h4>Analytics Needs</h4>
                 </div>
                 <div class="" layout="row">
-                  <md-checkbox>Require general information about a page</md-checkbox>
+                  <md-checkbox ng-model="checkboxNeeds[0]">Require general information about a page</md-checkbox>
                 </div>
                 <div class="" layout="row">
-                  <md-checkbox>Require data from an specific system</md-checkbox>
+                  <md-checkbox ng-model="checkboxNeeds[1]">Require data from an specific system</md-checkbox>
                 </div>
                 <div class="" layout="row">
-                  <md-checkbox>Require to report on-going data</md-checkbox>
+                  <md-checkbox ng-model="checkboxNeeds[2]">Require to report on-going data</md-checkbox>
                 </div>
 
                 <div class="" layout="row">
                   <h4>Analytics Experience</h4>
                 </div>
                 <div class="" layout="row">
-                  <md-checkbox>None</md-checkbox>
+                  <md-checkbox ng-model="checkboxExpr[0]">None</md-checkbox>
                 </div>
                 <div class="" layout="row">
-                  <md-checkbox>Reports on Adobe Catalyst</md-checkbox>
+                  <md-checkbox ng-model="checkboxExpr[1]">Reports on Adobe Catalyst</md-checkbox>
                 </div>
                 <div class="" layout="row">
-                  <md-checkbox>Analysis of data from multiple sources</md-checkbox>
+                  <md-checkbox ng-model="checkboxExpr[2]">Analysis of data from multiple sources</md-checkbox>
                 </div>
                 <div class="" layout="row">
-                  <md-checkbox>Display on custom formats</md-checkbox>
+                  <md-checkbox ng-model="checkboxExpr[3]">Display on custom formats</md-checkbox>
                 </div>
                 <div class="" layout="row">
                   <label class="labelRequest">How would data analysis help on your role?</label>
                 </div>
                 <div class="" layout="row">
                   <md-input-container>
-                    <textarea ng-model="test" ng-trim="false" md-maxlength="280" maxlength="280"></textarea>
+                    <textarea ng-model="descriptionRequest" ng-trim="false" md-maxlength="280" maxlength="280"></textarea>
                   </md-input-container>
                 </div>
-
-                <div class="" layout="row" layout-align="end center">
-                  <md-button class="controlOption">
+                <div class="" layout="row" layout-xs="column" layout-align="end center" layout-align-xs="center center" flex>
+                  <a href="#" ng-click="loginFrame = !loginFrame; requestFrame = !requestFrame"><i class="material-icons">account_box</i> Log in with your account</a>
+                  <md-button class="controlOption" type="submit">
                     <i class="material-icons">assignment_ind</i> REQUEST
                   </md-button>
                 </div>
-
-
               </form>
+              <div ng-show="reasonRequest" class="red">{{reasonRequest}}</div>
             </div>
           </div>
         </md-whiteframe>

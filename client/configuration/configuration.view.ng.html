@@ -2,7 +2,13 @@
   <div>
     <h2>Portal Settings</h2>
   </div>
-
+  <template name="listAll">
+  {{#each user}}
+      {{_id}}
+      {{username}}
+      
+  {{/each}}
+</template>
   <div class="">
     <md-whiteframe class="md-whiteframe-5dp" flex>
       <div class="" layout="row">
@@ -70,7 +76,7 @@
     </md-whiteframe>
   </div>
 
-  <div class="logDiv">
+  <div>
     <md-whiteframe class="md-whiteframe-1dp" flex>
       <div class="" layout="row">
         <div class="" layout="column"  flex="30">
