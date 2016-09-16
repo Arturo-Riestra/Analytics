@@ -1,10 +1,5 @@
-<div ng-controller="ProfileCtrl" class="md-padding" ng-cloak>
-  <ul>
-    <li ng-repeat="party in usersPortal">
-      {{party.username}}
-
-    </li>
-  </ul>
+<div class="md-padding" ng-cloak>
+  <div class="segments-list">
   <div class="" layout="row">
     <div layout="column" flex="80">
       <h2>My Profile</h2>
@@ -16,8 +11,8 @@
     </div>
   </div>
 
-  <div class="">
-    <div class="" layout="row">
+
+    <div class="" layout="row"  layout-align="center center">
       <div class="" layout="column"  flex="40">
         <h4>Name</h4>
       </div>
@@ -28,133 +23,55 @@
         <h4>Member since</h4>
       </div>
     </div>
-
-      <div class="" layout="row" layout-align="center center">
+      <div class="" layout="row" layout-align="center center" ng-repeat="user in userProf">
         <div class="" layout="column"  flex="40">
-          Jose Romero
+          {{user._id}}
+
         </div>
         <div class="" layout="column"  flex="30">
-          b27206
+          {{user.username}}
+
         </div>
         <div class="" layout="column"  flex="30">
-          Jan 23, 2016
+          {{user.createdAt}}
         </div>
       </div>
+      <div layout="row">
+        <md-whiteframe class="md-whiteframe-1dp" flex="100">
+          <div class="" layout="row">
+            <h3>My Segments</h3>
+          </div>
+          <div class="" layout="row">
+            Select the segments that can be selected on Home, Reports or Dashboard.
+          </div>
+        </md-whiteframe>
+      </div>
+
+
+    <div layout="column">
+      <md-whiteframe class="md-whiteframe-1dp" flex="100">
+        <div layout="row" layout-padding="">
+          <md-input-container>
+            <label>Search</label>
+            <input type="Search" ng-model="search" placeholder="Search" ng-change="resetGroup()">
+          </md-input-container>
+        </div>
+        <div ng-repeat="segment in segments">
+          <div ng-if="segmentGroup(segment.group)" my-repeat-directive ng-model="segmDiv">
+            <h4>{{ segment.group }}</h4>
+          </div>
+          <ul>
+            <li>
+              <md-checkbox ng-checked="userSegment(segment.name, userSegmets)" ng-model="chkSegment[segment.name]" ng-click="behaviorSegment(segment.name, userSegmets)">
+                {{ segment.name }}
+              </md-checkbox>
+            </li>
+          </ul>
+        </div>
+
+
+      </md-whiteframe>
+    </div>
 
   </div>
-
-  <div layout="row">
-    <md-whiteframe class="md-whiteframe-1dp" flex="100">
-      <div class="" layout="row">
-        <h3>My Segments</h3>
-      </div>
-      <div class="" layout="row">
-        Select the segments that can be selected on Home, Reports or Dashboard.
-      </div>
-    </md-whiteframe>
-  </div>
-  <div class="" layout="row">
-    <md-whiteframe class="md-whiteframe-1dp" flex="100">
-      <div class="" layout="row">
-        <div class="" layout="column" flex="50">
-          <div class="" layout="row">
-            <h4>General</h4>
-          </div>
-          <div class="" layout="row">
-            <md-checkbox>
-                    NXP
-            </md-checkbox>
-            <hr>
-          </div>
-          <div class="" layout="row" >
-            <md-checkbox>
-                    Search
-            </md-checkbox>
-            <hr>
-          </div>
-          <div class="" layout="row" >
-            <md-checkbox>
-                    Software Center
-            </md-checkbox>
-            <hr>
-          </div>
-        </div>
-
-
-        <div class="" layout="column" flex="50">
-          <div class="" layout="row">
-            <h4>Other Group</h4>
-          </div>
-          <div class="" layout="row">
-            <md-checkbox>
-                    NXP
-            </md-checkbox>
-            <hr>
-          </div>
-          <div class="" layout="row" >
-            <md-checkbox>
-                    Search
-            </md-checkbox>
-            <hr>
-          </div>
-          <div class="" layout="row" >
-            <md-checkbox>
-                    Software Center
-            </md-checkbox>
-            <hr>
-          </div>
-        </div>
-      </div>
-      <div class="" layout="row">
-        <div class="" layout="column" flex="50">
-          <div class="" layout="row">
-            <h4>Other Group</h4>
-          </div>
-          <div class="" layout="row">
-            <md-checkbox>
-                    NXP
-            </md-checkbox>
-            <hr>
-          </div>
-          <div class="" layout="row" >
-            <md-checkbox>
-                    Search
-            </md-checkbox>
-            <hr>
-          </div>
-          <div class="" layout="row" >
-            <md-checkbox>
-                    Software Center
-            </md-checkbox>
-            <hr>
-          </div>
-        </div>
-
-
-        <div class="" layout="column" flex="50">
-          <div class="" layout="row">
-            <h4>Other Group</h4>
-          </div>
-          <div class="" layout="row">
-            <md-checkbox>
-                    NXP
-            </md-checkbox>
-            <hr>
-          </div>
-          <div class="" layout="row" >
-            <md-checkbox>
-                    Search
-            </md-checkbox>
-            <hr>
-          </div>
-          <div class="" layout="row" >
-            <md-checkbox>
-                    Software Center
-            </md-checkbox>
-            <hr>
-          </div>
-        </div>
-      </div>
-    </md-whiteframe>
-</div>
 </div>
