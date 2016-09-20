@@ -7,7 +7,9 @@
           <label>Segment</label>
           <md-select ng-model="selectedSegment" md-selected-text="getSelectedSegment()">
             <md-optgroup label="segments">
-              <md-option ng-value="segment" ng-repeat="segment in segments">{{segment}}</md-option>
+              <md-option ng-value="segment._id" ng-repeat="segment in userProf[0].segments | orderBy: 'group'" ng-if="segment.checked">
+                {{segment.name}}
+              </md-option>
             </md-optgroup>
           </md-select>
         </md-input-container>

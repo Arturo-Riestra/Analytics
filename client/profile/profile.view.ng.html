@@ -53,16 +53,16 @@
         <div layout="row" layout-padding="">
           <md-input-container>
             <label>Search</label>
-            <input type="Search" ng-model="search" placeholder="Search" ng-change="resetGroup()">
+            <input type="Search" ng-model="search.name" placeholder="Search" ng-change="resetGroup()">
           </md-input-container>
         </div>
-        <div ng-repeat="segment in segments">
+        <div ng-repeat="segment in userProf[0].segments | orderBy: 'group' | filter:search">
           <div ng-if="segmentGroup(segment.group)" my-repeat-directive ng-model="segmDiv">
             <h4>{{ segment.group }}</h4>
           </div>
           <ul>
             <li>
-              <md-checkbox ng-checked="userSegment(segment.name, userSegmets)" ng-model="chkSegment[segment.name]" ng-click="behaviorSegment(segment.name, userSegmets)">
+              <md-checkbox ng-checked="segment.checked" ng-click="behaviorSegment(segment._id, segment.checked)">
                 {{ segment.name }}
               </md-checkbox>
             </li>

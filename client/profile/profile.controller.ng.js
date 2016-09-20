@@ -1,7 +1,7 @@
 'use strict';
 
   angular.module('analyticsApp')
-  .controller('ProfileCtrl', function ProfileCtrl ($scope, $state) {
+  .controller('ProfileCtrl', function ($scope, $state) {
 
     $scope.logginOut = function() {
       Meteor.logout(function(err){
@@ -23,22 +23,15 @@
       });
     };
 
-    $scope.sort = {group: 1};
 
     $scope.helpers({
-      segments: function() {
-        return Segments.find({}, {
-          sort: $scope.sort
-        });
+      userProf: function() {
+        return Meteor.users.find({_id: Meteor.userId()});
       }
     });
 
-    $scope.subscribe('segments', function() {
-      return [{
-        sort: $scope.sort,
-        limit: 0,
-        skip: 0
-      }, $scope.getReactively('search')];
+    $scope.subscribe('userProf', function() {
+      return [ Meteor.userId() ];
     });
 
     $scope.segmentGroup = function(group){
@@ -50,18 +43,15 @@
       }
     };
 
-    Meteor.call('segments.user',  Meteor.userId(), function(error, result){
-      $scope.userSegmets = result;
-    });
+    $scope.behaviorSegment = function(segment_Id, checked) {
 
-
-
-    $scope.userSegment = function(segmentName, userSegmets){
-
-    };
-
-    $scope.behaviorSegment = function(segmentName, userSegmets) {
-      
+      Meteor.call('update.segments.user',  Meteor.userId(), segment_Id, !checked, function(error, result){
+        if (error) {
+          console.log(error.reason);
+        } else {
+          $scope.segments = result;
+        }
+      });
 
     };
 

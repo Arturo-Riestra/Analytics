@@ -58,7 +58,8 @@
           <h2>Segments</h2>
         </div>
         <div class="" layout="column"  flex="70" layout-align="start end">
-          <md-button class="controlOption">
+          <md-button ng-click="toggleRight()" ng-hide="isOpenRight()"
+            class="controlOption">
             <i class="material-icons">library_add</i>ADD NEW
           </md-button>
         </div>
@@ -113,5 +114,43 @@
       <hr>
     </md-whiteframe>
   </div>
+
+  <section layout="row" flex>
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Segments Adeministration</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+        <form class="md-whiteframe-z1" ng-submit="save()" name="form" novalidate layout-padding="">
+          <p>Add a segment</p>
+          <md-input-container>
+            <label>Name</label>
+            <input ng-model="newSegment.name" placeholder="Name">
+          </md-input-container>
+          <md-input-container>
+            <label>Adobe Id</label>
+            <input ng-model="newSegment.name" placeholder="Name">
+          </md-input-container>
+          <md-input-container>
+            <label>Segment Group</label>
+            <md-select ng-model="selectedSegment" md-selected-text="getSelectedSegment()">
+              <md-optgroup label="segments">
+                <md-option ng-value="segment._id" ng-repeat="segment in userProf[0].segments | orderBy: 'group'" ng-if="segment.checked">
+                  {{segment.name}}
+                </md-option>
+              </md-optgroup>
+            </md-select>
+          </md-input-container>
+          <input class="controlOption" type="submit" value="Add">
+        </form>
+        <md-button ng-click="close()" class="controlOption">
+          Done
+        </md-button>
+      </md-content>
+
+    </md-sidenav>
+
+  </section>
 
 </div>
