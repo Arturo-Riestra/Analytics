@@ -72,7 +72,7 @@ $scope.request =  function() {
             if(err){
                 $scope.reasonRequest = err.reason;
             } else {
-                Meteor.call('accounts.roles', Meteor.userId(), 'admin');
+                Meteor.call('accounts.roles', Meteor.userId(), 'temp');
                 $scope.reasonRequest = "Wait for your account confirmation";
             }
             Accounts.logout();

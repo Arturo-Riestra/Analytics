@@ -1,156 +1,259 @@
-<div ng-controller="ConfigurationCtrl" class="md-padding" ng-cloak>
+  <div class="md-padding configuration" ng-cloak>
 
-  <div>
-    <h2>Portal Settings</h2>
-  </div>
-  <div class="">
-    <md-whiteframe class="md-whiteframe-5dp" flex>
+    <div>
+      <h2>Portal Settings</h2>
+    </div>
+    <div class="">
+      <md-whiteframe class="md-whiteframe-5dp" flex>
+        <div class="" layout="row">
+          <div class="" layout="column"  flex="30">
+            <h3>Users</h3>
+          </div>
+          <div class="" layout="column" layout-sm="row" flex="35" layout-align="start end">
+            <md-button ng-click=" toggleLeft()" ng-hide="isOpenLeft()"
+              class="controlOption">
+              <i class="material-icons">library_add</i>Add new Group
+            </md-button>
+          </div>
+          <div class="" layout="column" layout-sm="row" flex="35" layout-align="start end">
+            <md-button ng-click="toggleRight()" ng-hide="isOpenRight()"
+              class="controlOption">
+              <i class="material-icons">library_add</i>Add new Segment
+            </md-button>
+          </div>
+        </div>
+
       <div class="" layout="row">
         <div class="" layout="column"  flex="30">
-          <h3>Users</h3>
-        </div>
-        <div class="" layout="column"  flex="70" layout-align="start end">
-        </div>
-      </div>
-
-    <div class="" layout="row">
-      <div class="" layout="column"  flex="30">
-        <h4>Name</h4>
-      </div>
-      <div class="" layout="column"  flex="25">
-        <h4>Username</h4>
-      </div>
-      <div class="" layout="column"  flex="25">
-        <h4>Created</h4>
-      </div>
-      <div class="" layout="column"  flex="20">
-        <h4>Role</h4>
-      </div>
-    </div>
-    <div  ng-repeat="user in userData">
-      <div class="" layout="row" layout-align="center center">
-        <div class="" layout="column"  flex="30">
-          {{user._id}}
+          <h4>Name</h4>
         </div>
         <div class="" layout="column"  flex="25">
-          {{user.username}}
+          <h4>Username</h4>
         </div>
         <div class="" layout="column"  flex="25">
-          {{user.createdAt}}
+          <h4>Created</h4>
         </div>
         <div class="" layout="column"  flex="20">
-          <md-select ng-model="user.chosenValue" class="configSelect">
-            <md-option ng-value="admin" ng-selected="user.roles[0] == 'admin'" ng-click="alterCredentials(user._id, 'admin')">Administrator</md-option>
-            <md-option ng-value="user" ng-selected="user.roles[0] == 'user'" ng-click="alterCredentials(user._id, 'user')">User</md-option>
-            <md-option ng-hide="user.roles[0] !== 'temp'" ng-selected="user.roles[0] == 'temp'">New Request</md-option>
-          </md-select>
+          <h4>Role</h4>
         </div>
       </div>
-      <hr>
-    </div>
-    </md-whiteframe>
-  </div>
-
-  <div>
-    <md-whiteframe class="md-whiteframe-1dp" flex>
-      <div class="" layout="row">
-        <div class="" layout="column"  flex="30">
-          <h2>Segments</h2>
-        </div>
-        <div class="" layout="column"  flex="70" layout-align="start end">
-          <md-button ng-click="toggleRight()" ng-hide="isOpenRight()"
-            class="controlOption">
-            <i class="material-icons">library_add</i>ADD NEW
-          </md-button>
-        </div>
-      </div>
-    </md-whiteframe>
-    <md-whiteframe class="md-whiteframe-1dp" flex>
-    <div class="" layout="row" layout-align="start start">
-      <div class="" layout="column"  flex="30">
-        <h4>Name</h4>
-      </div>
-      <div class="" layout="column"  flex="25">
-        <h4>Adobe ID</h4>
-      </div>
-      <div class="" layout="column"  flex="25">
-        <h4>Created</h4>
-      </div>
-      <div class="" layout="column"  flex="20">
-        <h4>Status</h4>
-      </div>
-    </div>
-    </md-whiteframe>
-    <md-whiteframe class="md-whiteframe-1dp" flex>
-      <div class="" layout="row" layout-align="center center">
-        <div class="" layout="column"  flex="30">
-          NXP
-        </div>
-        <div class="" layout="column"  flex="25">
-          4fq34fr3f4q3f
-        </div>
-        <div class="" layout="column"  flex="25">
-          Jan 23, 2016
-        </div>
-        <div class="" layout="column"  flex="20">
-          Up to date
-        </div>
-      </div>
-      <hr>
-      <div class="" layout="row" layout-align="center center">
-        <div class="" layout="column"  flex="30">
-          Secure Connected Everithing
-        </div>
-        <div class="" layout="column"  flex="25">
-          f4fq34fr3f4q3f
-        </div>
-        <div class="" layout="column"  flex="25">
-          Jan 23, 2016
-        </div>
-        <div class="" layout="column"  flex="20">
-          Processing
-        </div>
-      </div>
-      <hr>
-    </md-whiteframe>
-  </div>
-
-  <section layout="row" flex>
-    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-
-      <md-toolbar class="md-theme-light">
-        <h1 class="md-toolbar-tools">Segments Adeministration</h1>
-      </md-toolbar>
-      <md-content ng-controller="RightCtrl" layout-padding>
-        <form class="md-whiteframe-z1" ng-submit="save()" name="form" novalidate layout-padding="">
-          <p>Add a segment</p>
-          <md-input-container>
-            <label>Name</label>
-            <input ng-model="newSegment.name" placeholder="Name">
-          </md-input-container>
-          <md-input-container>
-            <label>Adobe Id</label>
-            <input ng-model="newSegment.name" placeholder="Name">
-          </md-input-container>
-          <md-input-container>
-            <label>Segment Group</label>
-            <md-select ng-model="selectedSegment" md-selected-text="getSelectedSegment()">
-              <md-optgroup label="segments">
-                <md-option ng-value="segment._id" ng-repeat="segment in userProf[0].segments | orderBy: 'group'" ng-if="segment.checked">
-                  {{segment.name}}
-                </md-option>
-              </md-optgroup>
+      <div  ng-repeat="user in userData">
+        <div class="" layout="row" layout-align="center center">
+          <div class="" layout="column"  flex="30">
+            {{user._id}}
+          </div>
+          <div class="" layout="column"  flex="25">
+            {{user.username}}
+          </div>
+          <div class="" layout="column"  flex="25">
+            {{user.createdAt}}
+          </div>
+          <div class="" layout="column"  flex="20">
+            <md-select ng-model="user.chosenValue" class="configSelect">
+              <md-option ng-value="admin" ng-selected="user.roles[0] == 'admin'" ng-click="alterCredentials(user._id, 'admin')">Administrator</md-option>
+              <md-option ng-value="user" ng-selected="user.roles[0] == 'user'" ng-click="alterCredentials(user._id, 'user')">User</md-option>
+              <md-option ng-hide="user.roles[0] !== 'temp'" ng-selected="user.roles[0] == 'temp'">New Request</md-option>
             </md-select>
-          </md-input-container>
-          <input class="controlOption" type="submit" value="Add">
-        </form>
-        <md-button ng-click="close()" class="controlOption">
-          Done
-        </md-button>
-      </md-content>
+          </div>
+        </div>
+        <hr>
+      </div>
+      </md-whiteframe>
+    </div>
 
-    </md-sidenav>
+    <div>
+      <md-whiteframe class="md-whiteframe-1dp" flex>
+        <div class="" layout="row">
+          <div class="" layout="column"  flex="30">
+            <h3>Segments</h3>
+          </div>
+          <div class="" layout="column"  flex="70" layout-align="start start">
+            <md-input-container>
+              <label>Search</label>
+              <input type="Search" ng-model="search" placeholder="Search">
+            </md-input-container>
+          </div>
+        </div>
+      </md-whiteframe>
+      <md-whiteframe class="md-whiteframe-1dp" flex>
+      <div class="" layout="row" layout-align="center center">
+        <div class="" layout="column"  flex="40">
+          <h4>Name</h4>
+        </div>
+        <div class="" layout="column"  flex="25">
+          <h4>Adobe ID</h4>
+        </div>
+        <div class="" layout="column"  flex="25">
+          <h4>Group</h4>
+        </div>
+        <div class="" layout="column"  flex="10">
+          <h4>Status</h4>
+        </div>
+      </div>
+      </md-whiteframe>
+      <md-whiteframe class="md-whiteframe-1dp" flex>
+        <div dir-paginate="segment in segments | itemsPerPage: perPage | orderBy: 'name'"
+        total-items="segmentsCount" current-page='page'>
+            <div layout="row" layout-align="center start">
+              <div class="" layout="column"  flex="40">
+                <div layout="row" layout-align="center center">
+                  <div layout="column" layout-align="center center" flex="25">
+                    <md-menu>
+                      <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                        <i class="material-icons">menu</i>
+                      </md-button>
+                      <md-menu-content width="1">
+                        <md-menu-item layout-align="center center">
+                          <md-button ng-click="update(segment)"><i class="material-icons">save</i>Save</md-button>
+                        </md-menu-item>
+                        <md-menu-item layout-align="center center">
+                          <md-button ng-click="remove(segment)"><i class="material-icons">delete_forever</i>Delete</md-button>
+                        </md-menu-item>
+                      </md-menu-content>
+                    </md-menu>
+                  </div>
+                  <div layout="column" flex="75">
+                    <md-input-container>
+                      <label>Name</label>
+                      <input ng-model="segment.name" placeholder="Name" required>
+                    </md-input-container>
+                  </div>
+                </div>
+              </div>
+              <div class="" layout="column"  flex="25">
+                <md-input-container>
+                  <label>Name</label>
+                  <input ng-model="segment.adobeID" placeholder="Adobe Id" required>
+                </md-input-container>
+              </div>
+              <div class="" layout="column"  flex="25">
+                <md-input-container>
+                  <label>Segment Group</label>
+                  <md-select ng-model="segment.group" md-selected-text="getSelectedSegment()" required>
+                    <md-optgroup label="Group">
+                      <md-option ng-value="group.name" ng-repeat="group in groups | orderBy: 'name'">
+                        {{group.name}}
+                      </md-option>
+                    </md-optgroup>
+                  </md-select>
+                </md-input-container>
+              </div>
+              <div class="" layout="column"  flex="10">
+                In progress
+              </div>
+            </div>
+          <hr>
+        </div>
+        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+      </md-whiteframe>
+    </div>
 
-  </section>
+    <section layout="row" flex>
+      <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
 
-</div>
+        <md-toolbar class="md-theme-light">
+          <h1 class="md-toolbar-tools">New Segment</h1>
+        </md-toolbar>
+        <md-content ng-controller="RightCtrl" layout-padding>
+          <form class="md-whiteframe-z1" ng-submit="save()" name="form" novalidate layout-padding="">
+            <div layout="row" layout-aign="center center">
+              <p>Add a segment</p>
+            </div>
+            <div layout="row" layout-aign="center center">
+              <md-input-container>
+                <label>Name</label>
+                <input ng-model="newSegment.name" placeholder="Name" required>
+              </md-input-container>
+            </div>
+            <div layout="row" layout-aign="center center">
+              <md-input-container>
+                <label>Adobe Id</label>
+                <input ng-model="newSegment.adobeID" placeholder="Adobe Id" required>
+              </md-input-container>
+            </div>
+            <div layout="row" layout-aign="center center">
+              <md-input-container>
+                <label>Segment Group</label>
+                <md-select ng-model="newSegment.group" md-selected-text="getSelectedSegment()" required>
+                  <md-optgroup label="Group">
+                    <md-option ng-value="group.name" ng-repeat="group in groups | orderBy: 'name'">
+                      {{group.name}}
+                    </md-option>
+                  </md-optgroup>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div layout="row" layout-aign="center center">
+              <md-button type="submit" class="controlOption">
+                <i class="material-icons">add_box</i>Add
+              </md-button>
+            </div>
+            <div layout="row" layout-aign="center center">
+              <md-button ng-click="close()" class="controlOption">
+                Done
+              </md-button>
+            </div>
+          </form>
+        </md-content>
+      </md-sidenav>
+
+      <md-sidenav class="md-sidenav-left md-whiteframe-4dp"  md-component-id="left">
+
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools">Add Group</h1>
+        </md-toolbar>
+        <md-content layout-padding ng-controller="LeftCtrl">
+          <form class="md-whiteframe-z1" ng-submit="save()" name="form" novalidate layout-padding="">
+            <div layout="row" layout-aign="center center">
+              <md-input-container>
+                <label>Name</label>
+                <input ng-model="newGroup.name" placeholder="Name" required>
+              </md-input-container>
+            </div>
+            <div layout="row" layout-aign="center center">
+              <md-input-container>
+                <label>Adobe Id</label>
+                <input ng-model="newGroup.adobeID" placeholder="Adobe Id" required>
+              </md-input-container>
+            </div>
+            <div layout="row" layout-aign="center center">
+              <md-button type="submit" class="controlOption">
+                <i class="material-icons">add_box</i>Add
+              </md-button>
+            </div>
+            <div layout="row" layout-aign="center center">
+              <md-button ng-click="close()" class="controlOption">
+                Done
+              </md-button>
+            </div>
+            <div layout="row" layout-aign="center center" ng-repeat="group in groups | orderBy: 'name'" style="margin: 0px 0;">
+              <div layout="column" layout-align="center center" flex="25">
+                <md-menu>
+                  <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <i class="material-icons">menu</i>
+                  </md-button>
+                  <md-menu-content width="1">
+                    <md-menu-item layout-align="center center">
+                      <md-button ng-click="update(group)"><i class="material-icons">assignment</i>Save</md-button>
+                    </md-menu-item>
+                    <md-menu-item layout-align="center center">
+                      <md-button ng-click="remove(group)"><i class="material-icons">delete_forever</i>Delete</md-button>
+                    </md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </div>
+              <div layout="column" layout-align="center center" flex="75">
+                <md-input-container>
+                  <label>Name</label>
+                  <input ng-model="group.name" placeholder="Name" required>
+                </md-input-container>
+              </div>
+            </div>
+          </form>
+
+        </md-content>
+
+      </md-sidenav>
+
+    </section>
+  </div>
